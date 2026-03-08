@@ -141,6 +141,10 @@ This project was built as part of my React learning journey to understand how to
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ranggautama47)
 
+## 🌐 Live Demo
+
+🔗 **Preview Website:**  
+[Click here to open the app](https://menu-pizzas-six.vercel.app/)
 ## ⭐ Show Your Support
 
 If this project helped you understand React props & state better, please give it a ⭐ — it motivates me to create more learning resources!
