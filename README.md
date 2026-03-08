@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+🍕 Fast React Pizza Co.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Create_React_App](https://img.shields.io/badge/Create_React_App-09D3AC?style=for-the-badge&logo=create-react-app&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-## Available Scripts
+A simple **React.js practice project** that displays a pizza restaurant menu.  
+This project was created to practice **React fundamentals**, including components, props, conditional rendering, and dynamic list rendering.
 
-In the project directory, you can run:
+## 📸 Preview
 
-### `npm start`
+![Pizza Menu Preview](screenshot/menu.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚀 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Display a list of pizzas dynamically
+- Show pizza name, ingredients, price, and image
+- Conditional rendering for **sold-out pizzas**
+- Dynamic rendering using **JavaScript `.map()`**
+- Simple and clean UI using CSS
+- Store open / close status based on current time
 
-### `npm test`
+## 🧠 Concepts Practiced
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project focuses on learning important React concepts:
 
-### `npm run build`
+- React Components
+- Props
+- Conditional Rendering
+- Rendering Lists with `.map()`
+- JSX Syntax
+- Basic Component Structure
+- Simple State Logic (open/close time)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🏗️ Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+📦 PIZZA-MENU
+ ┣ 📂 node_modules
+ ┣ 📂 public
+ ┃ ┣ 📂 pizzas
+ ┃ ┃ ┣ 📜 focaccia.jpg
+ ┃ ┃ ┣ 📜 funghi.jpg
+ ┃ ┃ ┣ 📜 margherita.jpg
+ ┃ ┃ ┣ 📜 prosciutto.jpg
+ ┃ ┃ ┣ 📜 salamino.jpg
+ ┃ ┃ ┗ 📜 spinaci.jpg
+ ┃ ┣ 📜 favicon.ico
+ ┃ ┗ 📜 index.html
+ ┣ 📂 src
+ ┃ ┣ 📜 index.js
+ ┃ ┗ 📜 index.css
+ ┣ 📂 screenshot
+ ┃ ┗ 📜 menu.png
+ ┣ 📜 package.json
+ ┗ 📜 README.md
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🍕 Example Pizza Data
 
-### `npm run eject`
+```javascript
+{
+  name: "Pizza Margherita",
+  ingredients: "Tomato and mozzarella",
+  price: 10,
+  photoName: "pizzas/margherita.jpg",
+  soldOut: false
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Each pizza is rendered dynamically using:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+pizzaData.map((pizza) => (
+  <Pizza pizzaObj={pizza} key={pizza.name} />
+))
+```
+## ⏰ Opening Hours Logic
+```
+The restaurant automatically checks if it is open:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const hour = new Date().getHours();
+const openHour = 12;
+const closeHour = 22;
+const isOpen = hour >= openHour && hour <= closeHour;
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If open, users can place an order.
+If closed, a message will appear.
+```
 
-## Learn More
+## 🎯 What I Learned
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Concept | Implementation |
+|---------|---------------|
+| Props | Passing `pizzaObj` to Pizza component |
+| Conditional Rendering | `sold-out` class, ternary operators |
+| List Mapping | `pizzaData.map()` with unique keys |
+| Component Structure | App → Header, Menu, Footer |
+| Dynamic Styling | Conditional CSS classes |
+| Real-time Data | Restaurant open/close based on current hour |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠️ Technologies Used
 
-### Code Splitting
+| Technology | Badge | Description |
+|------------|-------|-------------|
+| React.js | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) | UI library for component-based architecture |
+| Create React App | ![CRA](https://img.shields.io/badge/CRA-09D3AC?style=flat-square&logo=create-react-app&logoColor=white) | Bootstrapped with CRA for zero-config setup |
+| JavaScript (ES6+) | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Modern JS features like arrow functions, map, ternary |
+| HTML5 | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) | Semantic markup structure |
+| CSS3 | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Styling with modern CSS features |
+| Google Fonts | ![Google Fonts](https://img.shields.io/badge/Google%20Fonts-4285F4?style=flat-square&logo=google-fonts&logoColor=white) | Roboto Mono for beautiful typography |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 Installation
+```
+Clone the repository:
 
-### Analyzing the Bundle Size
+git clone https://github.com/ranggautama47/menu_pizzas.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Go to the project folder:
 
-### Making a Progressive Web App
+cd menu_pizzas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Install dependencies:
 
-### Advanced Configuration
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Run the project:
 
-### Deployment
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The application will run at:
 
-### `npm run build` fails to minify
+http://localhost:3000
+```
+## 🎯 Learning Purpose
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was built as part of my React learning journey to understand how to structure components and render dynamic content in React.
+
+
+## 👨‍💻 Author
+
+**Rangga Utama**  
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ranggautama47)
+
+## ⭐ Show Your Support
+
+If this project helped you understand React props & state better, please give it a ⭐ — it motivates me to create more learning resources!
+
+## Happy Coding! 🚀
